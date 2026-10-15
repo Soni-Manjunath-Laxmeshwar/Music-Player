@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Audio Player with Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="player-container">
+        <div class="player-left">
+            <div class="visualizer-container">
+                <div class="cover-art" id="cover-art">
+                    <i class="fas fa-music placeholder-icon"></i>
+                </div>
+                <canvas id="visualizer"></canvas>
+            </div>
+            
+            <div class="track-info">
+                <h2 id="track-title">Track Title</h2>
+                <p id="track-artist">Artist Name</p>
+            </div>
+
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" min="0" max="100" value="0">
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="controls">
+                <button id="prev-btn" class="control-btn"><i class="fas fa-step-backward"></i></button>
+                <button id="play-btn" class="control-btn play-btn-large"><i class="fas fa-play"></i></button>
+                <button id="next-btn" class="control-btn"><i class="fas fa-step-forward"></i></button>
+            </div>
+
+            <div class="volume-container">
+                <button id="mute-btn"><i class="fas fa-volume-up"></i></button>
+                <input type="range" id="volume-bar" min="0" max="1" step="0.01" value="1">
+            </div>
+        </div>
+
+        <div class="player-right">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="playlist">Playlist</button>
+                <button class="tab-btn" data-tab="lyrics">Lyrics</button>
+            </div>
+            
+            <div id="playlist-tab" class="tab-content active">
+                <ul id="playlist-list">
+                    <!-- Playlist items injected via JS -->
+                </ul>
+            </div>
+            
+            <div id="lyrics-tab" class="tab-content">
+                <div id="lyrics-container">
+                    <!-- Lyrics injected via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="lyrics-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
